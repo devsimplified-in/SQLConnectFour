@@ -13,8 +13,8 @@
     </RootPath>
     <RootNamespace>ConnectFour.Database</RootNamespace>
     <AssemblyName>ConnectFour.Database</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
-    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
@@ -22,6 +22,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -56,5 +58,25 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Tables\" />
+    <Folder Include="Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Game.sql" />
+    <Build Include="Tables\GameBoardState.sql" />
+    <Build Include="Tables\Log.sql" />
+    <Build Include="Tables\Board.sql" />
+    <Build Include="Tables\BoardConfig.sql" />
+    <Build Include="Tables\Player.sql" />
+    <Build Include="Tables\PlayerQueue.sql" />
+    <Build Include="Tables\GamePlayer.sql" />
+    <Build Include="Stored Procedures\usp_ExecuteMove.sql" />
+    <Build Include="Stored Procedures\usp_Check_WinningMove.sql" />
+    <Build Include="Stored Procedures\usp_PrintBoardState.sql" />
+    <Build Include="Stored Procedures\usp_Load_MasterAndTestData.sql" />
+    <Build Include="Stored Procedures\usp_CleanData.sql" />
+    <Build Include="Stored Procedures\usp_StartNewGame.sql" />
+    <Build Include="Stored Procedures\usp_CreateBoard.sql" />
+    <Build Include="Stored Procedures\usp_AddNewPlayer.sql" />
   </ItemGroup>
 </Project>
